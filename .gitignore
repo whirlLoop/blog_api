@@ -1,2 +1,6 @@
 *.env*
 .vscode/
+*pycache*
+.coverage
+*htmlcov*
+src/core/.coveragerc

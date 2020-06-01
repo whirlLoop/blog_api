@@ -1,1 +1,2 @@
-from .blog.models import BlogPost
+from .blog import BlogPost
+from .auth import UserManager, User

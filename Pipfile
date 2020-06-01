@@ -11,6 +11,9 @@ django = "==3.0.6"
 djangorestframework = "==3.11.0"
 djangorestframework-simplejwt = "*"
 psycopg2-binary = "*"
+drf-yasg = {extras = ["validation"],version = "*"}
+pillow = "*"
+coverage = "*"
 
 [requires]
 python_version = "3.8"

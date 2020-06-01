@@ -1,0 +1,1 @@
+from .user_instance import create_blog_user

@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'blog_v1.apps.BlogV1Config',
     'rest_framework',
+    'drf_yasg',
 ]
 
 MIDDLEWARE = [
@@ -124,11 +125,21 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+LOGIN_URL = '/admin/'
+APPEND_SLASH=False
+AUTH_USER_MODEL = 'blog_v1.User'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
     ),
     'DEFAULT_VERSIONING_CLASS':
         'rest_framework.versioning.NamespaceVersioning',
+}
+
+SWAGGER_SETTINGS = {
+    'VALIDATOR_URL': os.environ.get('VALIDATION_URL'),
+    'DEFAULT_INFO': 'netbox.urls.openapi_info',
 }
