@@ -7,13 +7,14 @@ verify_ssl = true
 pylint-django = "*"
 
 [packages]
-django = "==3.0.6"
 djangorestframework = "==3.11.0"
 djangorestframework-simplejwt = "*"
 psycopg2-binary = "*"
 drf-yasg = {extras = ["validation"],version = "*"}
 pillow = "*"
 coverage = "*"
+django = "==3.0.6"
+gunicorn = "==20.0.4"
 
 [requires]
 python_version = "3.8"
