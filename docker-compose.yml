@@ -1,0 +1,32 @@
+version: '3.7'
+
+services:
+    database:
+        image: postgres:12.1
+        environment:
+            POSTGRES_PASSWORD: blog
+            POSTGRES_USER: blogger
+            POSTGRES_DB: blogger
+    web:
+        build:
+            context: .
+            args:
+                DJANGO_SETTINGS_MODULE: core.settings.development
+                SECRET_KEY: very-random-string-or-not
+        command: postgres_healthcheck
+        command: python src/core/manage.py makemigrations
+        command: python src/core/manage.py migrate
+        command: python src/core/manage.py runserver 0.0.0.0:8000
+        environment:
+            DATABASE_NAME: blogger
+            DATABASE_PASSWORD: blog
+            DATABASE_USER: blogger
+            HOST: database
+            DJANGO_SETTINGS_MODULE: core.settings.development
+            SECRET_KEY: secret-key
+        depends_on:
+            - database
+        ports:
+            - 8000:8000
+        volumes:
+            - .:/blog_api
