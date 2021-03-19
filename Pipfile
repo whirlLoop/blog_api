@@ -7,7 +7,7 @@ verify_ssl = true
 pylint-django = "*"
 
 [packages]
-djangorestframework = "==3.11.0"
+djangorestframework = "==3.11.2"
 djangorestframework-simplejwt = "*"
 psycopg2-binary = "*"
 drf-yasg = {extras = ["validation"],version = "*"}
